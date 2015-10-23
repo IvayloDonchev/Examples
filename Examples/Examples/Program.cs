@@ -24,6 +24,20 @@ namespace Examples
             }
            return currentMin;
         }
+        public static double Sum(params object[] paramList)
+        {
+            double s = 0.0;
+            try {
+                foreach (object x in paramList)
+                    s += double.Parse(x.ToString());    //Голяма простотия, ама работи!
+             }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return 0.0;
+            }
+            return s;
+        }
     }
     class Program
     {
@@ -34,6 +48,8 @@ namespace Examples
             Console.WriteLine(Util.Min(2, 7, 5, 24));
             Console.WriteLine(Util.Min(5, 4));
             Console.WriteLine(Util.Min(10));
+
+            Console.WriteLine(Util.Sum(2, 3.5));
         }
     }
 }
