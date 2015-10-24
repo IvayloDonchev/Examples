@@ -8,16 +8,16 @@ namespace Examples
 {
     class Util
     {
-        public static int Min(params int[] paramList)
+        public static T Min<T>(params T[] paramList)
         {
            if (paramList == null || paramList.Length == 0)
             {
                 throw new ArgumentException("Util.Min: not enough arguments");
             }
-           int currentMin = paramList[0];
-           foreach (int i in paramList)
+           T currentMin = paramList[0];
+           foreach (T i in paramList)
             {
-               if (i < currentMin)
+               if (double.Parse(i.ToString()) < double.Parse(currentMin.ToString()))
                 {
                     currentMin = i;
                 }
@@ -48,6 +48,7 @@ namespace Examples
             Console.WriteLine(Util.Min(2, 7, 5, 24));
             Console.WriteLine(Util.Min(5, 4));
             Console.WriteLine(Util.Min(10));
+            Console.WriteLine(Util.Min(4, 5.5, 6.2, 1.7, 10));
 
             Console.WriteLine(Util.Sum(2, 3.5));
         }
